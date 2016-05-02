@@ -1,6 +1,7 @@
 package org.mercycorps.translationcards.activity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,7 +45,19 @@ public class MyDecksActivity extends AbstractTranslationCardsActivity {
         List<Deck> decks = getDecks();
         initListFooter(decks);
         initListHeader();
+//        addOneTranslationAndDeck();
         updateDecksView(decks);
+    }
+
+    private void addOneTranslationAndDeck() {
+            long deckId = getDbManager().addDeck("Test", "PavlinaTheDestroyer", new Date().getTime(), "", "", false, "En");
+        for (int i=0; i<10 ; i++) {
+            long dictionaryID = getDbManager().addDictionary("AR", "Arabic", i, deckId);
+
+            for (int j = 0; j < 100; j++) {
+                getDbManager().addTranslationAtTop(dictionaryID, ("Does this work?" + j), true, "here.txc", "Esto funciona?");
+            }
+        }
     }
 
     private void initListHeader() {

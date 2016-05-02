@@ -26,7 +26,6 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mercycorps.translationcards.MainApplication;
-import org.mercycorps.translationcards.R;
 import org.mercycorps.translationcards.activity.addTranslation.NewTranslationContext;
 import org.mercycorps.translationcards.porting.ImportException;
 import org.mercycorps.translationcards.porting.TxcPortingUtility;
